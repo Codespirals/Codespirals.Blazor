@@ -1,0 +1,27 @@
+﻿<div class="sticker" style="@_size @_rotate @_top @_right @_bottom @_left" role="presentation">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public decimal? Top { get; set; }
+    [Parameter]
+    public decimal? Bottom { get; set; }
+    [Parameter]
+    public decimal? Right { get; set; }
+    [Parameter]
+    public decimal? Left { get; set; }
+    [Parameter]
+    public decimal Width { get; set; } = 100;
+    [Parameter]
+    public decimal Rotate { get; set; } = Random.Shared.Next(-400, 400) / 10m;
+
+    private string _size => $"width:{Width}px;";
+    private string _rotate => $"rotate:{Rotate}deg;";
+    private string _top => Top is null ? string.Empty : $"top:{Top}rem;";
+    private string _right => Right is null ? string.Empty : $"right:{Right}rem;";
+    private string _bottom => Bottom is null ? string.Empty : $"bottom:{Bottom}rem;";
+    private string _left => Left is null ? string.Empty : $"left:{Left}rem;";
+}

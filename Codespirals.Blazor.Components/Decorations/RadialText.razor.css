@@ -1,0 +1,50 @@
+﻿.radial-text-container {
+	height: calc(var(--radius) * 2);
+	width: calc(var(--radius) * 2);
+	background-color: black;
+	border-radius: 50%;
+	user-select: none;
+}
+
+.radial-text {
+	font: var(--font-size) Monaco, MonoSpace;
+	transform-origin: bottom left;
+	rotate: calc(var(--angle) * -0.5);
+	height: var(--radius);
+	width: var(--radius);
+	margin-left: calc(var(--radius));
+	margin-bottom: calc(var(--radius));
+}
+
+.circle {
+	rotate: calc(var(--angle) * 0.5);
+	position: absolute;
+	height: calc((var(--radius) - var(--font-size)) * 2);
+	width: calc((var(--radius) - var(--font-size)) * 2);
+	overflow: hidden;
+	border-radius: 50%;
+	bottom: calc((var(--radius) - var(--font-size)) * -1);
+	left: calc((var(--radius) - var(--font-size)) * -1);
+	margin: 0 auto;
+}
+
+.circle-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+	::deep .circle-content > * {
+		height: calc((var(--radius) - var(--font-size)) * 2);
+		object-fit: cover;
+	}
+
+.radial-letter {
+	rotate: calc((var(--rotate-per-letter) / 2) + (var(--rotate-per-letter) * var(--letter-number)));
+	position: absolute;
+	bottom: 0;
+	left: calc(var(--font-size) / -4);
+	transform-origin: bottom center;
+	height: var(--radius);
+	color: white;
+}

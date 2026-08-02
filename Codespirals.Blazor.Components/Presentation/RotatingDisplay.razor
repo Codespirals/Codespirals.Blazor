@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+
+<div class="rotating-display-container">
+    <div class="rotating-display @_paused">
+        @ChildContent
+    </div>
+    <button class="toggle-rotation-button" @onclick="ToggleRotation">
+        ⏯
+    </button>
+</div>
+
+@code {
+    private string _paused => Paused ? "paused" : "rotating";
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public bool Paused { get; set; }
+
+    public void ToggleRotation()
+    {
+        Paused = !Paused;
+    }
+}

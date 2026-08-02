@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+
+<div class="input-with-label">
+    <label>
+        @Label
+        @if (Description is not null && !ShowDescription)
+        {
+            <span @onclick="ToggleDescription">?</span>
+        }
+        @if (Warning is not null && !ShowWarning)
+        {
+            <span @onclick="ToggleWarning">!</span>
+        }
+    </label>
+    <div class="input-field">
+        @ChildContent
+    </div>
+    @if (Description is not null)
+    {
+        <p class="input-description @_openDescription" role="note">@Description</p>
+    }
+    @if (Warning is not null)
+    {
+        <p class="input-warning @_openWarning" role="alert">@Warning</p>
+    }
+</div>
+
+@code {
+    private bool _showWarning;
+    private bool _showDescription;
+
+    private string _openDescription => _showDescription ? "open" : "";
+    private string _openWarning => _showWarning ? "open" : "";
+
+    [Parameter]
+    public required string Label { get; set; }
+    [Parameter]
+    public required RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public string? Description { get; set; }
+    [Parameter]
+    public string? Warning { get; set; }
+    [Parameter]
+    public bool ShowDescription { get; init; }
+    [Parameter]
+    public bool ShowWarning { get; init; }
+
+    private void ToggleDescription() => _showDescription = !_showDescription;
+    private void ToggleWarning() => _showWarning = !_showWarning;
+
+    protected override void OnInitialized()
+    {
+        _showDescription = ShowDescription;
+        _showWarning = ShowWarning;
+    }
+}

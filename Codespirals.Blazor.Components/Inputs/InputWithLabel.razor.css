@@ -1,0 +1,116 @@
+﻿.input-with-label {
+	display: grid;
+	grid-template-columns: 50% auto;
+	padding: 0;
+	border-top: 1px solid white;
+}
+	.input-with-label > label {
+		padding: 0.125rem 0;
+	}
+		.input-with-label > label > span {
+			vertical-align: top;
+			margin-top: 0.125rem;
+			margin-left: 0.25rem;
+			display: inline-block;
+			font-size: 0.5rem;
+			width: 0.75rem;
+			aspect-ratio: 1/1;
+			text-align: center;
+			align-content: center;
+			border: 1px solid var(--color-primary);
+			border-radius: 50%;
+			color: var(--color-primary);
+			background-color: var(--color-background);
+		}
+
+	.input-with-label > p {
+		color: var(--color-foreground);
+		margin: 0 0 0.125rem 0;
+	}
+
+.input-field {
+	width: 100%;
+	overflow: hidden;
+}
+
+	.input-field > ::deep input,
+	.input-field > ::deep textarea,
+	.input-field > ::deep input[type=number],
+	.input-field > ::deep input[type=date] {
+		width: calc(100% - 12px);
+		margin: 0.125rem;
+	}
+
+		.input-field > ::deep input[type=checkbox] {
+			width: max-content;
+		}
+
+	.input-field > ::deep .radio-option {
+		display: grid;
+		grid-template-columns: min-content auto;
+	}
+
+
+.input-field > ::deep select {
+	width: max-content;
+	max-width: 100%;
+	margin: 0.125rem;
+}
+
+.input-field > ::deep input[type=checkbox] {
+	margin: 0.125rem;
+}
+
+::deep .radio-option > input[type=radio],
+::deep .radio-option > label {
+	margin: 0 0 0 0.125rem;
+}
+
+.input-description {
+	border-top: 1px dashed white;
+	margin-bottom: 0.25rem;
+}
+	.input-description:before {
+		color: var(--color-background);
+		background-color: var(--color-foreground);
+		vertical-align: middle;
+		display: inline-block;
+		margin-right: 0.125rem;
+		font-size: 0.875rem;
+		line-height: 0.75rem;
+		height: 0.75rem;
+		aspect-ratio: 1/1;
+		text-align: center;
+		align-content: center;
+		content: 'ℹ';
+		border-radius: 50%; 
+	}
+
+.input-description, .input-warning {
+	position: relative;
+	grid-column: 1 / span 2;
+	padding: 0;
+	display: none;
+	transition: 0.3s;
+}
+	.input-description.open, .input-warning.open {
+		display: block;
+	}
+
+.input-warning {
+	text-justify: inter-word;
+	border: solid 1px var(--color-primary);
+	border-radius: 0.25rem;
+	margin: 0;
+	margin-bottom: 0.25rem;
+	padding: 0 0.25rem 0.125rem 0.25rem;
+}
+
+	.input-warning:before {
+		color: var(--color-primary);
+		content: '⚠';
+		padding-right: 0.125rem;
+	}
+		.input-warning:after {
+			border-color: var(--color-primary);
+		}

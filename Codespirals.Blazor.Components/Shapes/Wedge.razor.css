@@ -1,0 +1,78 @@
+﻿
+.wedge,
+.wedge-bottom, .wedge-bottom::before, .wedge-bottom::after,
+.wedge-slope, .wedge-slope::before, .wedge-slope::after,
+.wedge-label {
+	content: '';
+	position: absolute;
+	transform-style: preserve-3d;
+}
+
+.wedge {
+	--x: 10px;
+	--y: 10px;
+	--z: 10px;
+	--move-x: 0;
+	--move-y: 0;
+	--move-z: 0;
+	--rotate-x: 10deg;
+	--rotate-y: 10deg;
+	--rotate-z: 10deg;
+	--label: '';
+	transform-origin: 50% 50%;
+	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
+	translate: var(--move-x) var(--move-y) var(--move-z);
+	width: var(--x);
+	height: var(--y);
+}
+
+.wedge-bottom {
+	width: var(--x);
+	height: var(--y);
+	background-color: color-mix(in srgb, var(--color) 60%, #333333);
+}
+
+	.wedge-bottom::before {
+		width: var(--x);
+		height: var(--z);
+		background-color: color-mix(in srgb, var(--color) 95%, #333333);
+		transform-origin: top left;
+		translate: 0 ;
+		transform: rotateX(90deg);
+	}
+
+.wedge-slope {
+	--hypotenuse: hypot(var(--y), var(--z));
+	--border: calc(var(--hypotenuse) / 2);
+	width: var(--x);
+	height: var(--hypotenuse);
+	transform-origin: top center;
+	background-color: var(--color);
+	translate: 0 0 var(--z);
+	transform: rotateX(-45deg);
+}
+
+	.wedge-slope::before {
+		border-right: var(--border) solid color-mix(in srgb, var(--color) 60%, #333333);
+		border-top: var(--border) solid transparent;
+		border-bottom: var(--border) solid transparent;
+		transform-origin: bottom left;
+		translate: var(--x) 0 calc(var(--border) * -1);
+		transform: rotateY(-90deg);
+	}
+
+	.wedge-slope::after {
+		border-right: var(--border) solid color-mix(in srgb, var(--color) 85%, #333333);
+		border-top: var(--border) solid transparent;
+		border-bottom: var(--border) solid transparent;
+		transform-origin: top left;
+		translate: 0 0 calc(var(--border) * -1);
+		transform: rotateY(-90deg);
+	}
+
+.wedge-label {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}

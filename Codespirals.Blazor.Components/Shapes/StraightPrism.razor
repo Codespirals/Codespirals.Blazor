@@ -1,0 +1,13 @@
+﻿<div class="prism-container">
+    <div class="prism">
+        @for (int i = 0; i < SideFaces; i++)
+        {
+            <div class="prism-face" style="--index:@i;"></div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int SideFaces { get; set; }
+}

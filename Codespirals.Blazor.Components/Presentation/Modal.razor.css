@@ -1,0 +1,22 @@
+﻿
+.modal-dialog {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	min-width: calc(var(--min-width) + 20px);
+	background-color: #222c;
+	
+}
+
+.modal-dialog-content {
+	min-width: var(--min-width);
+	width: max-content;
+	max-width: 90%;
+	margin: min(200px, 15%) auto auto auto;
+	background-color: var(--color-background);
+	padding: 0.25rem;
+	border: 2px solid var(--color-primary-tint);
+	border-radius: 0.5rem;
+}

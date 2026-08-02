@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+
+<div class="rotatable-display" style="@_size @_rotate" 
+    @ontouchstart="SetCoordinates" @ontouchmove="Rotate" @ontouchmove:preventDefault="true"
+    @onmousedown="SetCoordinates" @onmousemove="Rotate" @onmousemove:preventDefault="true">
+    <div class="rotatable-display-content">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    private string _size => $"--size:{ContentSize}px;";
+    private string _rotate => $"--rotate-content-x:{_deltaX}deg;--rotate-content-y:{_deltaY}deg;";
+
+    private double _mouseX = 0;
+    private double _mouseY = 0;
+
+    private double _deltaY = 60;
+    private double _deltaX = 150;
+
+    [Parameter]
+    public double ContentSize { get; set; } = 100;
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private void SetCoordinates(MouseEventArgs e)
+    {
+        _mouseX = e.ScreenX;
+        _mouseY = e.ScreenY;
+    }
+    private void Rotate(MouseEventArgs e)
+    {
+        if (!Codespirals.Base.Extensions.BinaryIntegerExtensions.CheckBitAtPosition(e.Buttons, 0))
+            return;
+
+        _deltaX += (_mouseX - e.ScreenX) / 4;
+        _deltaY += (_mouseY - e.ScreenY) / 4;
+        SetCoordinates(e);
+    }
+    private void SetCoordinates(TouchEventArgs e)
+    {
+        _mouseX = e.Touches.First().ScreenX;
+        _mouseY = e.Touches.First().ScreenY;
+    }
+    private void Rotate(TouchEventArgs e)
+    {
+        _deltaX += (_mouseX - e.Touches.First().ScreenX) / 2;
+        _deltaY += (_mouseY - e.Touches.First().ScreenY) / 2;
+        Console.WriteLine($"X:{_mouseX}|Y:{_mouseY}|DX:{_deltaX}|DY:{_deltaY}");
+        SetCoordinates(e);
+    }
+}

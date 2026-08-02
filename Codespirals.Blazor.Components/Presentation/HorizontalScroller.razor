@@ -1,0 +1,25 @@
+﻿
+<div class="horizontal-scroller-container">
+    <div class="horizontal-scroller">
+        @ChildContent
+    </div>
+</div>
+
+<script>
+    document.getElementsByClassName("horizontal-scroller")[0].addEventListener("wheel", scrollHorizontally);
+    function scrollHorizontally(args)
+    {   
+        if(args.deltaY > 0)
+        {
+            this.scrollLeft += 75;
+        }
+        else {
+            this.scrollLeft -= 75;
+        }
+    }
+</script>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

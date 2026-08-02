@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Codespirals.Blazor.Components/Codespirals.Blazor.Components.csproj" />
+  <Project Path="Codespirals.Blazor.Showcase/Codespirals.Blazor.Showcase.csproj" />
+</Solution>

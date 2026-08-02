@@ -1,0 +1,40 @@
+﻿<div class="radial-text-container" style="@_radius">
+    <div class="radial-text" style="@_fontSize @_angle @_rotatePerLetter">
+        <div class="circle">
+            <div class="circle-content">
+                @ChildContent
+            </div> 
+        </div>
+        @{
+            var i = 0;
+            foreach (var letter in Text)
+            {
+                <span class="radial-letter" style="@SetLetterNumber(i++)">
+                    @letter
+                </span>
+            }
+        }
+    </div>
+</div>
+
+@code {
+    private double _clampedAngle => Math.Clamp(Angle, Text.Count(), 360);
+
+    private string _fontSize => $"--font-size:{FontSize}px;";
+    private string _radius => $"--radius:{Size / 2}px;";
+    private string _angle => $"--angle:{_clampedAngle}deg;";
+    private string _rotatePerLetter => $"--rotate-per-letter:{_clampedAngle / Text.Length}deg;";
+    
+    [Parameter]
+    public string Text { get; set; } = "";
+    [Parameter]
+    public double Size { get; set; } = 200;
+    [Parameter]
+    public double Angle { get; set; } = 180;
+    [Parameter]
+    public int FontSize { get; set; } = 16;
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private string SetLetterNumber(int number) => $"--letter-number:{number};";
+}

@@ -1,0 +1,7 @@
+﻿.text-sticker {
+	position: absolute;
+	user-select: none;
+	color: black;
+	text-shadow: 1px 0px white, -1px 0px white, 0px -1px white, 0px 1px white;
+	filter: drop-shadow(1px 0px white) drop-shadow(-1px 0px white) drop-shadow(0px -1px white) drop-shadow(0px 1px white) drop-shadow(1px 1px 1px var(--color-shadow));
+}

@@ -1,0 +1,42 @@
+﻿<div class="wedge @ExtraClasses" style="@_size @_position @_rotation @_sideLabel @_color">
+    <div class="wedge-bottom">
+        <div class="wedge-slope">
+            <div class="wedge-label">
+                @ChildContent
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _size => $"--x:{X}px;--y:{Y}px;--z:{Y}px;";
+    private string _position => $"--move-x:{MoveX}px;--move-y:{MoveY}px;--move-z:{MoveZ}px;";
+    private string _rotation => $"--rotate-x:{RotateX}deg;--rotate-y:{RotateY}deg;--rotate-z:{RotateZ}deg;";
+    private string _sideLabel => $"--label:'{SideLabel}';";
+    private string _color => $"--color:{Color}";
+
+    [Parameter]
+    public double X { get; set; } = 100;
+    [Parameter]
+    public double Y { get; set; } = 100;
+    [Parameter]
+    public double MoveX { get; set; }
+    [Parameter]
+    public double MoveY { get; set; }
+    [Parameter]
+    public double MoveZ { get; set; }
+    [Parameter]
+    public double RotateX { get; set; }
+    [Parameter]
+    public double RotateY { get; set; }
+    [Parameter]
+    public double RotateZ { get; set; }
+    [Parameter]
+    public string Color { get; set; } = "#fff";
+    [Parameter]
+    public string ExtraClasses { get; set; } = "";
+    [Parameter]
+    public string SideLabel { get; set; } = "";
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
