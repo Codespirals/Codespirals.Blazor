@@ -1,0 +1,35 @@
+
+.label-with-tooltip {
+	position: relative;
+}
+	.label-with-tooltip:hover .tooltip {
+		visibility: visible;
+	}
+	.label-with-tooltip > label {
+		display: block;
+		width: 100%;
+	}
+
+		.label-with-tooltip > label:after {
+			position: absolute;
+			color: var(--color-primary);
+			content: '*';
+			user-select: none;
+		}
+
+.tooltip {
+	position: absolute;
+	visibility: hidden;
+	background-color: white;
+	color: black;
+	border: 1px solid var(--color-primary);
+	border-radius: 0.25rem;
+	padding: 0 0.75rem 0 0.125rem;
+	z-index: 1;
+	top: 100%;
+	left: 0;
+}
+
+	.tooltip:hover {
+		visibility: hidden;
+	}

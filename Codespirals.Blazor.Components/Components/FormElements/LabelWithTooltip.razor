@@ -1,0 +1,19 @@
+﻿@namespace Codespirals.Blazor.Components
+
+<div class="@(!string.IsNullOrWhiteSpace(Tooltip) ? "label-with-tooltip" : "")">
+    <label for="@_for">@Text</label>
+    @if (!string.IsNullOrWhiteSpace(Tooltip))
+    {
+        <span class="tooltip">@Tooltip</span>
+    }
+</div>
+@code {
+    private string _for => string.IsNullOrWhiteSpace(For) ? "" : For;
+
+    [Parameter]
+    public required string Text { get; set; }
+    [Parameter]
+    public string? Tooltip { get; set; }
+    [Parameter]
+    public string? For { get; set; }
+}

@@ -1,0 +1,8 @@
+﻿.sticker {
+	position: absolute;
+}
+
+	.sticker > ::deep * {
+		user-select: none;
+		box-shadow: inset 1rem 1rem 1rem 1rem white;
+	}

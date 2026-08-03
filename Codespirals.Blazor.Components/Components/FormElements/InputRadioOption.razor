@@ -1,0 +1,19 @@
+﻿@namespace Codespirals.Blazor.Components
+@using Microsoft.AspNetCore.Components.Forms
+@typeparam TValue
+
+<div class="input-radio-option">
+    <InputRadio id="@_id" Value="@Value" />
+    <LabelWithTooltip Text="@Label" Tooltip="@Tooltip" For="@_id"></LabelWithTooltip>
+</div>
+
+@code {
+    private readonly string _id = $"ro-{Guid.NewGuid().ToString("D").Split('-').First()}";
+
+    [Parameter]
+    public required TValue Value { get; set; }
+    [Parameter]
+    public required string Label { get; set; }
+    [Parameter]
+    public string? Tooltip { get; set; }
+}

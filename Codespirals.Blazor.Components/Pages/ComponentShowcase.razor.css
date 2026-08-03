@@ -1,0 +1,61 @@
+h1 {
+	font-size: 1.25rem;
+	width: max-content;
+	overflow-x: hidden;
+	margin: 0 0.5rem;
+}
+
+h2 {
+	margin: 0;
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	color: white;
+}
+
+.fill {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.center-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.component-selection {
+	position: absolute;
+	margin: 0 0.5rem;
+}
+
+.component-showcase {
+	min-width: 300px;
+	margin: 3rem 0.5rem 0.5rem 0.5rem;
+	border: 10px inset dimgrey;
+	background-color: var(--color-background);
+	overflow-y: scroll;
+}
+
+::deep .component-controls input {
+	margin: 0.125rem 0.125rem 0 0.125rem;
+}
+::deep .component-controls label {
+	margin: 0.25rem 0.125rem 0 0.125rem;
+}
+
+#pacman {
+	width: 0px;
+	height: 0px;
+	border-right: 60px solid transparent;
+	border-top: 60px solid #fe2;
+	border-left: 60px solid #fe2;
+	border-bottom: 60px solid #fe2;
+	border-top-left-radius: 100%;
+	border-top-right-radius: 100%;
+	border-bottom-left-radius: 100%;
+	border-bottom-right-radius: 100%;
+}

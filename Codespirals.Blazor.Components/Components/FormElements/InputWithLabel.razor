@@ -1,15 +1,16 @@
-﻿@using Microsoft.AspNetCore.Components.Web
+﻿@namespace Codespirals.Blazor.Components
+@using Microsoft.AspNetCore.Components.Web
 
 <div class="input-with-label">
     <label>
         @Label
         @if (Description is not null && !ShowDescription)
         {
-            <span @onclick="ToggleDescription">?</span>
+            <span class="@_openDescription" @onclick="ToggleDescription">?</span>
         }
         @if (Warning is not null && !ShowWarning)
         {
-            <span @onclick="ToggleWarning">!</span>
+            <span class="@_openWarning" @onclick="ToggleWarning">!</span>
         }
     </label>
     <div class="input-field">
