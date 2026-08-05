@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Codespirals.Blazor.Components/Codespirals.Blazor.Components.csproj" />
   <Project Path="Codespirals.Blazor.Showcase/Codespirals.Blazor.Showcase.csproj" />
+  <Project Path="Codespirals.Blazor.WebsiteTemplate/Codespirals.Blazor.WebsiteTemplate.csproj" Id="89a917b6-9d46-4462-8a02-261883c51b4f" />
 </Solution>

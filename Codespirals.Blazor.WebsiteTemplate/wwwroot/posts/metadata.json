@@ -1,0 +1,15 @@
+﻿[
+	{
+		"Title": "Hello world",
+		"Group": "posts",
+		"Description": "Because \"diary\" sounds embarrassing.",
+		"Tags": [ "Testing", "Why not?" ],
+		"Created": "2025-11-17",
+		"Edited": "2026-04-03",
+		"ContentUrl": "posts/HelloWorld.md",
+		"StickerEmoji": "📝",
+		"IsActive": true,
+		"ShowInList": false,
+		"EstimatedReadTimeInMinutes": 3
+	}
+]

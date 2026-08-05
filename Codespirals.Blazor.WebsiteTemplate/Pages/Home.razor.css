@@ -1,0 +1,73 @@
+﻿
+.home-container {
+	min-height: 500px;
+	overflow-y: scroll;
+	display: flex;
+	justify-content: center;
+	padding: 2rem 0;
+}
+
+::deep .book {
+	box-shadow: 5px 5px 10px var(--color-shadow);
+	color: white;
+}
+
+::deep .book-back, ::deep .book-spine, ::deep .book-top {
+	--color: var(--color-book-cover);
+	background-image: url(../images/textures/dark-leather.png);
+}
+
+::deep .book-pages {
+	border: 1px solid black;
+}
+
+::deep .book-cover {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border: 2px solid var(--color-shadow);
+	padding: 2rem;
+}
+
+.post-grid-cell {
+	margin-top: 10rem;
+}
+
+.post-wrapper {
+	max-width: 380px;
+	min-width: var(--min-width);
+}
+
+.peek-card-container {
+	min-width: var(--min-width);
+	height: 12rem;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 11;
+	overflow: hidden;
+	padding-top: 2rem;
+	padding-left: 2rem;
+}
+
+.peek-card {
+	height: max-content;
+	min-width: calc(var(--min-width) - 40px);
+	width: max-content;
+	position: absolute;
+	bottom: -9rem;
+	right: 0;
+}
+	.peek-card.showSource {
+		transition: bottom 0.5s;
+		bottom: 0;
+	}
+	.peek-card.hideSource {
+		transition: bottom 0.5s;
+		bottom: -9rem;
+	}
+	.peek-card ::deep .card-tag {
+		color: white;
+	}
