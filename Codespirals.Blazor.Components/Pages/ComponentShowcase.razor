@@ -126,14 +126,13 @@
             break;
         case Component.Sticker:
             <div class="fill center-content">
-                <Sticker Rotate="@_rotateX">
-                    <div id="pacman"></div>
+                <Sticker>
+                    <div class="center-content" style="width:100px;height:100px;background-color:#c83;">Test</div>
                 </Sticker>
             </div>
             <div class="component-controls" style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content 80px;">
                 <label>X</label> <InputNumber @bind-value="_x" />
                 <label>Y</label> <InputNumber @bind-value="_y" />
-                <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
             </div>
             break;
         default:

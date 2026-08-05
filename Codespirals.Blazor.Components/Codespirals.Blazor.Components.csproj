@@ -4,7 +4,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Title>$(AssemblyName)</Title>
-    <Version>0.1.13.26216</Version>
+    <Version>0.1.27.26217</Version>
     <Company>codespirals</Company>
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -32,7 +32,6 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <Resource Include="wwwroot\pictures\png_sticker_example.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Codespirals.Base.Shared" Version="1.1.1.26110" />
