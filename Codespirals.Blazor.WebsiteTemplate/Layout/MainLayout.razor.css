@@ -1,5 +1,6 @@
 .page {
     --sidebar-height: 2.5rem;
+    --sidebar-width: 100%;
     display: block;
     height: 100vh;
     width: 100vw;
@@ -13,14 +14,13 @@ main {
     width: 100%;
     height: calc(100% - var(--sidebar-height) - 1px);
     overflow-x: hidden;
-    overflow-y: auto;
 }
 
 .sidebar {
-    background-color: var(--color-background);
+    background-color: var(--color-contrast-0);
     position: sticky;
     height: var(--sidebar-height);
-    min-width: max-content;
+    width: var(--sidebar-width);
     z-index: 1;
     background-image: var(--texture-paper);
     border: none;
@@ -29,19 +29,19 @@ main {
 
 @media (min-width: 840px) {
     .page {
-        
+        --sidebar-height: 0;
+        --sidebar-width: 10rem;
     }
 
     main {
         top: 0;
         height: 100vh;
-        width: calc(100% - 13.75rem);
+        width: calc(100% - var(--sidebar-width));
     }
 
     .sidebar {
         position: static;
         height: 100%;
-        width: min-content;
         border: none;
         border-right: 1px solid var(--color-foreground);
     }

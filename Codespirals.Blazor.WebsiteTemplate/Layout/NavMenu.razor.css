@@ -35,22 +35,25 @@ nav {
 	width: 100%;
 	display: block;
 	font-family: "Lucida Console", "Courier New", monospace;
-	background-color: var(--color-background);
+	background-color: var(--color-contrast-0);
 	border-bottom: 1px solid var(--color-foreground);
 }
 
 nav ::deep a {
 	display: block;
 	margin: 0.25rem auto;
-	width: max-content;
-	padding: 0.25rem 0.5rem;
+	width: 100%;
+	padding: 0.25rem 0;
 	height: min-content;
-	align-items: center;
+	text-align: center;
 }
-
+	nav ::deep a:hover {
+		background-color: var(--color-contrast-1);
+	}
 	nav ::deep a.active, .navbar-brand ::deep a.active {
 		text-decoration: underline var(--color-primary);
 	}
+
 
 @media (min-width: 840px) {
 	.navbar-brand {

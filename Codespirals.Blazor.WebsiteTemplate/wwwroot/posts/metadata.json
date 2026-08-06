@@ -2,14 +2,14 @@
 	{
 		"Title": "Hello world",
 		"Group": "posts",
-		"Description": "Because \"diary\" sounds embarrassing.",
-		"Tags": [ "Testing", "Why not?" ],
-		"Created": "2025-11-17",
-		"Edited": "2026-04-03",
+		"Description": "A template for blog posts.",
+		"Tags": [ "Template", "Testing" ],
+		"Created": "2026-08-08",
+		"Edited": "2026-08-08",
 		"ContentUrl": "posts/HelloWorld.md",
 		"StickerEmoji": "📝",
 		"IsActive": true,
-		"ShowInList": false,
-		"EstimatedReadTimeInMinutes": 3
+		"ShowInList": true,
+		"EstimatedReadTimeInMinutes": 0
 	}
 ]

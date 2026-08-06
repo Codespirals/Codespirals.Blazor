@@ -10,12 +10,9 @@
 </button>
 
 <nav class="@NavMenuCssClass nav-scrollable">
-    <div class="center-text">
-        Contents:
-    </div>
     @foreach (var item in _links)
     {
-        <NavLink href="@item.Link" Match="NavLinkMatch.All" tabindex="0" @onclick="CloseNavMenu">@($"{item.Name.PadRight(17, '.')}{_links.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
+        <NavLink href="@item.Link" Match="NavLinkMatch.All" tabindex="0" @onclick="CloseNavMenu">@item.Name</NavLink>
     }
 </nav>
 
