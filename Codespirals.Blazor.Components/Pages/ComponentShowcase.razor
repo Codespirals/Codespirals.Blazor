@@ -135,6 +135,16 @@
                 <label>Y</label> <InputNumber @bind-value="_y" />
             </div>
             break;
+        case Component.TextSticker:
+            <div class="fill center-content">
+                <TextSticker Text="@_textSticker" Scale="_fontSize">
+                </TextSticker>
+            </div>
+            <div class="component-controls" style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content 80px;">
+                <label>Text</label> <InputText @bind-value="_textSticker" />
+                <label>Size</label> <InputNumber @bind-value="_fontSize" />
+            </div>
+            break;
         default:
             <div class="fill center-content">
                 <p>Nothing selected</p>
@@ -175,6 +185,7 @@
 
     // sticker
     private string _stickerSize => $"height:{_x}px;width:{_y}px;";
+    private string _textSticker = "★";
 
     private enum Component
     {
@@ -185,7 +196,8 @@
         RotatableDisplay,
         RadialText,
         InputWithLabel,
-        Sticker
+        Sticker,
+        TextSticker
     }
 
     [SupplyParameterFromQuery]
