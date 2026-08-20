@@ -1,8 +1,8 @@
 ﻿@namespace Codespirals.Blazor.Components
 
 <div class="prism-container">
-    <div class="prism">
-        @for (int i = 0; i < SideFaces; i++)
+    <div class="prism" style="--total-faces:@NumberOfSideFaces;">
+        @for (int i = 0; i < Math.Clamp(NumberOfSideFaces, 3, 1000); i++)
         {
             <div class="prism-face" style="--index:@i;"></div>
         }
@@ -11,5 +11,7 @@
 
 @code {
     [Parameter]
-    public int SideFaces { get; set; }
+    public int NumberOfSideFaces { get; set; }
+    public int Height { get; set; }
+    public int Width { get; set; }
 }
