@@ -46,6 +46,19 @@
                 <Cuboid X="200" Y="200" Z="200"></Cuboid>
             </RotatableDisplay>
             break;
+        case Component.HorizontalScroller:
+            <div class="fill">
+                <HorizontalScroller>
+                    <div style="background-color:#dd5500;">
+                        @for (int i = 20; i < 40; i++)
+                        {
+                            <div style="width:200px;height:200px;background-color:@($"#{2 * i:00}0000");display:inline-block;margin:0.5rem;">
+                            </div>
+                        }
+                    </div>
+                </HorizontalScroller>
+            </div>
+            break;
         case Component.Wedge:
             <RotatingDisplay Paused="true">
                 <Wedge X="_x" Y="_y" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
@@ -194,6 +207,7 @@
         Wedge,
         RotatingDisplay,
         RotatableDisplay,
+        HorizontalScroller,
         RadialText,
         InputWithLabel,
         Sticker,
