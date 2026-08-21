@@ -28,6 +28,30 @@
                 <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
             </div>
             break;
+        case Component.Wedge:
+            <RotatingDisplay Paused="true">
+                <Wedge X="_x" Y="_y" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
+                    <div class="fill center-content">
+                        <span style="font-size:calc(var(--x) * 0.3); width:min-content;color:black;">DO A FLIP!</span>
+                    </div>
+                </Wedge>
+            </RotatingDisplay>
+            <div class="component-controls" style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content;">
+                <label>X</label> <InputNumber @bind-value="_x" />
+                <label>Y</label> <InputNumber @bind-value="_y" />
+            </div>
+            break;
+        case Component.StraightPrism:
+            <RotatingDisplay Paused="true">
+                <StraightPrism>
+
+                </StraightPrism>
+            </RotatingDisplay>
+            <div class="component-controls" style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content;">
+                <label>X</label> <InputNumber @bind-value="_x" />
+                <label>Y</label> <InputNumber @bind-value="_y" />
+            </div>
+            break;
         case Component.RotatingDisplay:
             <RotatingDisplay>
                 <Cuboid X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ" SideLabel="Side Text">
@@ -45,19 +69,6 @@
             <RotatableDisplay ContentSize="200">
                 <Cuboid X="200" Y="200" Z="200"></Cuboid>
             </RotatableDisplay>
-            break;
-        case Component.Wedge:
-            <RotatingDisplay Paused="true">
-                <Wedge X="_x" Y="_y" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
-                    <div class="fill center-content">
-                        <span style="font-size:calc(var(--x) * 0.3); width:min-content;color:black;">DO A FLIP!</span>
-                    </div>
-                </Wedge>
-            </RotatingDisplay>
-            <div class="component-controls" style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content;">
-                <label>X</label> <InputNumber @bind-value="_x" />
-                <label>Y</label> <InputNumber @bind-value="_y" />
-            </div>
             break;
         case Component.RadialText:
             <div class="fill center-content">
@@ -192,6 +203,7 @@
         None,
         Cuboid,
         Wedge,
+        StraightPrism,
         RotatingDisplay,
         RotatableDisplay,
         RadialText,

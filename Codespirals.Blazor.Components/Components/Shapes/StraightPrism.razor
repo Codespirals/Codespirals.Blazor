@@ -4,7 +4,7 @@
     <div class="prism" style="--total-faces:@NumberOfSideFaces;">
         @for (int i = 0; i < Math.Clamp(NumberOfSideFaces, 3, 1000); i++)
         {
-            <div class="prism-face" style="--index:@i;"></div>
+            <div class="prism-face" style="--index:@i;--distance-to-front:@GetDistanceToZeroIndexOnCircle(i, NumberOfSideFaces)"></div>
         }
     </div>
 </div>
@@ -12,6 +12,15 @@
 @code {
     [Parameter]
     public int NumberOfSideFaces { get; set; }
+    [Parameter]
     public int Height { get; set; }
+    [Parameter]
     public int Width { get; set; }
+    
+    public static int GetDistanceToZeroIndexOnCircle(int current, int max)
+    {
+        if (current < Math.Ceiling(max / 2d))
+            return current;
+        return max + 1 - current;
+    } 
 }
