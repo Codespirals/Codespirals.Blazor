@@ -35,7 +35,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Codespirals.Base.Shared" Version="1.1.1.26110" />
+    <PackageReference Include="Codespirals.Base.Shared" Version="1.2.0.26235" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.10" />
   </ItemGroup>
