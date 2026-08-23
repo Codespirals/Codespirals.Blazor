@@ -1,6 +1,7 @@
 ﻿@namespace Codespirals.Blazor.Components
+@using Codespirals.Base.Extensions
 
-<div class="horizontal-scroller-container">
+<div class="horizontal-scroller-container @ExtraClasses">
     <div class="horizontal-scroller">
         @ChildContent
     </div>
@@ -23,4 +24,6 @@
 @code {
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public string ExtraClasses { get; set; } = "";
 }
