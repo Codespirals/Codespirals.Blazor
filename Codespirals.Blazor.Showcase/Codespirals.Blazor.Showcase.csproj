@@ -9,12 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Codespirals.Blazor.Components" Version="1.1.7.26236" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.10" PrivateAssets="all" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Codespirals.Blazor.Components\Codespirals.Blazor.Components.csproj" />
   </ItemGroup>
 
   <ItemGroup>
