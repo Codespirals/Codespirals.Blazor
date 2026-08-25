@@ -12,7 +12,7 @@
 
 @code {
     private string _size => $"--x:{X}{_useXPercentage};--y:{Y}{_useXPercentage};--z:{Z}px;";
-    private string _position => $"--move-x:{MoveX}px;--move-y:{MoveY}px;--move-z:{MoveZ}px;";
+    private string _position => $"--move-x:{MoveX}{_moveXPercentage};--move-y:{MoveY}{_moveYPercentage};--move-z:{MoveZ}px;";
     private string _rotation => $"--rotate-x:{RotateX}deg;--rotate-y:{RotateY}deg;--rotate-z:{RotateZ}deg;";
     private string _sideLabel => $"--label:'{SideLabel}';";
     private string _backgroundImage => string.IsNullOrWhiteSpace(BackgroundImage) ? $"--background-image:none;" : $"--background-image:url({BackgroundImage});";
@@ -20,6 +20,8 @@
 
     private string _useXPercentage => UseXPercentage ? "%" : "px";
     private string _useYPercentage => UseYPercentage ? "%" : "px";
+    private string _moveXPercentage => MoveXPercentage ? "%" : "px";
+    private string _moveYPercentage => MoveYPercentage ? "%" : "px";
 
     [Parameter]
     public double X { get; set; } = 100;
@@ -34,7 +36,11 @@
     [Parameter]
     public double MoveX { get; set; }
     [Parameter]
+    public bool MoveXPercentage { get; set; }
+    [Parameter]
     public double MoveY { get; set; }
+    [Parameter]
+    public bool MoveYPercentage { get; set; }
     [Parameter]
     public double MoveZ { get; set; }
     [Parameter]
