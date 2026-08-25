@@ -11,17 +11,24 @@
 </div>
 
 @code {
-    private string _size => $"--x:{X}px;--y:{Y}px;--z:{Z}px;";
+    private string _size => $"--x:{X}{_useXPercentage};--y:{Y}{_useXPercentage};--z:{Z}px;";
     private string _position => $"--move-x:{MoveX}px;--move-y:{MoveY}px;--move-z:{MoveZ}px;";
     private string _rotation => $"--rotate-x:{RotateX}deg;--rotate-y:{RotateY}deg;--rotate-z:{RotateZ}deg;";
     private string _sideLabel => $"--label:'{SideLabel}';";
-    private string _backgroundImage => $"--background-image:url({BackgroundImage});";
+    private string _backgroundImage => string.IsNullOrWhiteSpace(BackgroundImage) ? $"--background-image:none;" : $"--background-image:url({BackgroundImage});";
     private string _color => $"--color:{Color}";
+
+    private string _useXPercentage => UseXPercentage ? "%" : "px";
+    private string _useYPercentage => UseYPercentage ? "%" : "px";
 
     [Parameter]
     public double X { get; set; } = 100;
     [Parameter]
+    public bool UseXPercentage { get; set; }
+    [Parameter]
     public double Y { get; set; } = 100;
+    [Parameter]
+    public bool UseYPercentage { get; set; }
     [Parameter]
     public double Z { get; set; } = 100;
     [Parameter]
@@ -43,7 +50,7 @@
     [Parameter]
     public string SideLabel { get; set; } = "";
     [Parameter]
-    public string BackgroundImage { get; set; } = "";
+    public string? BackgroundImage { get; set; }
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }
