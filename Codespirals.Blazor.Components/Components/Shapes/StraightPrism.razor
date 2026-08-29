@@ -1,26 +1,32 @@
 ﻿@namespace Codespirals.Blazor.Components
 
-<div class="prism-container">
+<div class="prism-container" >
     <div class="prism" style="--total-faces:@NumberOfSideFaces;">
-        @for (int i = 0; i < Math.Clamp(NumberOfSideFaces, 3, 1000); i++)
+        @for (int i = 0; i < NumberOfSideFaces; i++)
         {
-            <div class="prism-face" style="--index:@i;--distance-to-front:@GetDistanceToZeroIndexOnCircle(i, NumberOfSideFaces)"></div>
+            <div class="prism-face" style="--index:@i;--distance-to-front:@GetDistanceToFrontFace(i, NumberOfSideFaces)"></div>
         }
     </div>
 </div>
 
 @code {
+    private string _size => $"--height:{Height}px;--diameter:{Diameter}px;";
     [Parameter]
     public int NumberOfSideFaces { get; set; }
     [Parameter]
     public int Height { get; set; }
     [Parameter]
-    public int Width { get; set; }
-    
-    public static int GetDistanceToZeroIndexOnCircle(int current, int max)
+    public int Diameter { get; set; }
+
+    public static int GetDistanceToFrontFace(int current, int max)
     {
         if (current < Math.Ceiling(max / 2d))
             return current;
         return max + 1 - current;
-    } 
+    }
+    protected override void OnParametersSet()
+    {
+        NumberOfSideFaces = Math.Clamp(NumberOfSideFaces, 3, 1000);
+        base.OnParametersSet();
+    }
 }

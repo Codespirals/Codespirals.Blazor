@@ -1,0 +1,11 @@
+.prism {
+    --rotate-per-face: calc(360 / var(--total-faces));
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.prism-face {
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateX(90deg) rotateY(calc(var(--index) * var(--rotate-per-face)));
+}

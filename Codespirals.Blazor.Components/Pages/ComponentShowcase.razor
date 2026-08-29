@@ -29,6 +29,21 @@
                     <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
                 </div>
                 break;
+            case Component.Wedge:
+                <RotatingDisplay Paused="true">
+                    <Wedge X="_x" Y="_y" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
+                        <div class="fill center-content">
+                            <span style="font-size:calc(var(--x) * 0.3); width:min-content;color:black;">DO A FLIP!</span>
+                        </div>
+                    </Wedge>
+                </RotatingDisplay>
+                <div class="component-controls" style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content;">
+                    <label>X</label> <InputNumber @bind-value="_x" />
+                    <label>Y</label> <InputNumber @bind-value="_y" />
+                </div>
+                break;
+            case Component.StraightPrism:
+                break;
             case Component.RotatingDisplay:
                 <RotatingDisplay>
                     <Cuboid X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ" SideLabel="Side Text">
@@ -58,19 +73,6 @@
                             }
                         </div>
                     </HorizontalScroller>
-                </div>
-                break;
-            case Component.Wedge:
-                <RotatingDisplay Paused="true">
-                    <Wedge X="_x" Y="_y" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
-                        <div class="fill center-content">
-                            <span style="font-size:calc(var(--x) * 0.3); width:min-content;color:black;">DO A FLIP!</span>
-                        </div>
-                    </Wedge>
-                </RotatingDisplay>
-                <div class="component-controls" style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content;">
-                    <label>X</label> <InputNumber @bind-value="_x" />
-                    <label>Y</label> <InputNumber @bind-value="_y" />
                 </div>
                 break;
             case Component.RadialText:
@@ -178,6 +180,10 @@
     private int _rotateX = 60;
     private int _rotateY = 0;
     private int _rotateZ = 45;
+
+    // prism controls
+    private int _diameter = 200;
+    private int _numberOfFaces = 3;
 
     // Radial text controls
     private string _text = "Testing Radial Text";
