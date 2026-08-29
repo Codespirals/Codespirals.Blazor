@@ -27,17 +27,23 @@ h2 {
 	align-items: center;
 }
 
-.component-selection {
+.split {
+	background-color: grey;
 	position: absolute;
-	margin: 0 0.5rem;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: grid;
+	grid-template-rows: max-content auto;
 }
 
 .component-showcase {
 	min-width: 300px;
-	margin: 3rem 0.5rem 0.5rem 0.5rem;
-	border: 10px inset dimgrey;
-	background-color: var(--color-background);
-	overflow-y: scroll;
+	height: calc(100% - 1rem);
+	width: calc(100% - 1rem);
+	border: inset 0.5rem #aaa;
+	position: relative;
 }
 
 ::deep .component-controls input {
@@ -45,17 +51,4 @@ h2 {
 }
 ::deep .component-controls label {
 	margin: 0.25rem 0.125rem 0 0.125rem;
-}
-
-#pacman {
-	width: 0px;
-	height: 0px;
-	border-right: 60px solid transparent;
-	border-top: 60px solid #fe2;
-	border-left: 60px solid #fe2;
-	border-bottom: 60px solid #fe2;
-	border-top-left-radius: 100%;
-	border-top-right-radius: 100%;
-	border-bottom-left-radius: 100%;
-	border-bottom-right-radius: 100%;
 }

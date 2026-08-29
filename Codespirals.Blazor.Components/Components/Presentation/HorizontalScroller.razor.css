@@ -1,6 +1,13 @@
 ﻿
 .horizontal-scroller {
 	overflow-x: scroll;
+	white-space: nowrap;
+	width: 100%;
+	padding-bottom: 0.5rem;
+	position: relative;
+}
+
+.horizontal-scroller-content { 
+	vertical-align: top;
 	width: max-content;
-	height: calc(100% - 0.5rem);
 }

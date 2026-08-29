@@ -1,7 +1,9 @@
 ﻿@namespace Codespirals.Blazor.Components
 
-<div class="horizontal-scroller @ExtraClasses">
-    @ChildContent
+<div class="horizontal-scroller">
+    <div class="horizontal-scroller-content">
+        @ChildContent
+    </div>
 </div>
 
 <script>

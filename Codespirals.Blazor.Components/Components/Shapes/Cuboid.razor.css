@@ -23,6 +23,7 @@
 	--rotate-y: 10deg;
 	--rotate-z: 10deg;
 	--label: '';
+	--background-image: none;
 	transform-origin: 50% 50%;
 	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
 	translate: var(--move-x) var(--move-y) var(--move-z);
@@ -33,12 +34,14 @@
 .cuboid-bottom {
 	width: var(--x);
 	height: var(--y);
+	background-image: var(--background-image);
 	background-color: color-mix(in srgb, var(--color) 90%, #333333);
 }
 
 	.cuboid-bottom::before {
 		width: 100%;
 		height: var(--z);
+		background-image: var(--background-image);
 		background-color: color-mix(in srgb, var(--color) 95%, #333333);
 		transform-origin: top right;
 		transform: rotateX(270deg) rotateY(180deg);
@@ -48,6 +51,7 @@
 	.cuboid-bottom::after {
 		width: var(--y);
 		height: var(--z);
+		background-image: var(--background-image);
 		background-color: color-mix(in srgb, var(--color) 85%, #333333);
 		transform-origin: top left;
 		transform: rotateZ(90deg) rotateX(-90deg);
@@ -57,6 +61,7 @@
 .cuboid-top {
 	width: var(--x);
 	height: var(--y);
+	background-image: var(--background-image);
 	background-color: var(--color);
 	translate: 0 0 var(--z);
 }
@@ -64,6 +69,7 @@
 	.cuboid-top::before {
 		width: var(--x);
 		height: var(--z);
+		background-image: var(--background-image);
 		background-color: color-mix(in srgb, var(--color) 70%, #333333);
 		transform-origin: top right;
 		transform: rotateX(-90deg);
@@ -73,6 +79,7 @@
 	.cuboid-top::after {
 		height: var(--z);
 		width: var(--y);
+		background-image: var(--background-image);
 		background-color: color-mix(in srgb, var(--color) 60%, #333333);
 		transform-origin: top left;
 		transform: rotateZ(-90deg) rotateX(-90deg);
