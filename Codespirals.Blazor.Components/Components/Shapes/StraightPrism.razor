@@ -1,6 +1,6 @@
 ﻿@namespace Codespirals.Blazor.Components
 
-<div class="prism-container" >
+<div class="prism-container" style="@_size @_color">
     <div class="prism" style="--total-faces:@NumberOfSideFaces;">
         @for (int i = 0; i < NumberOfSideFaces; i++)
         {
@@ -10,13 +10,17 @@
 </div>
 
 @code {
-    private string _size => $"--height:{Height}px;--diameter:{Diameter}px;";
+    private string _size => $"--height:{Height}px;--diameter:{Diameter}px;"; 
+    private string _color => $"--color:{Color}";
+
     [Parameter]
     public int NumberOfSideFaces { get; set; }
     [Parameter]
     public int Height { get; set; }
     [Parameter]
     public int Diameter { get; set; }
+    [Parameter]
+    public string Color { get; set; } = "#fff";
 
     public static int GetDistanceToFrontFace(int current, int max)
     {

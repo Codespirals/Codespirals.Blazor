@@ -1,11 +1,21 @@
+.prism-container {
+    height: var(--height);
+    width: var(--diameter);
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
 .prism {
     --rotate-per-face: calc(360 / var(--total-faces));
+    height: var(--height);
     position: absolute;
     transform-style: preserve-3d;
 }
 
 .prism-face {
+    height: var(--height);
     position: absolute;
     transform-style: preserve-3d;
     transform: rotateX(90deg) rotateY(calc(var(--index) * var(--rotate-per-face)));
+    background-color: color-mix(in srgb, var(--color) calc(100% - var(--distance-to-front)), #333333);
 }

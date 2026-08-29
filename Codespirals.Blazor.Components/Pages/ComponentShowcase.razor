@@ -43,6 +43,14 @@
                 </div>
                 break;
             case Component.StraightPrism:
+                <RotatableDisplay ContentSize="200">
+                    <StraightPrism Diameter="_diameter" Height="_x" NumberOfSideFaces="_numberOfFaces"></StraightPrism>
+                </RotatableDisplay>
+                <div class="component-controls" style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content;">
+                    <label>Height</label> <InputNumber @bind-value="_x" />
+                    <label>Diameter</label> <InputNumber @bind-value="_diameter" />
+                    <label>Faces</label> <InputNumber @bind-value="_numberOfFaces" />
+                </div>
                 break;
             case Component.RotatingDisplay:
                 <RotatingDisplay>
