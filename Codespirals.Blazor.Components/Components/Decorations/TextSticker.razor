@@ -1,5 +1,9 @@
 ﻿@namespace Codespirals.Blazor.Components
 
+@implements IAbsolutelyPositionable
+@implements IHasFontSize
+@implements IRotatable
+
 <div class="text-sticker" style="@_fontSize @_rotate @_top @_right @_bottom @_left" role="presentation">
     @Text
 </div>
@@ -8,22 +12,22 @@
     [Parameter]
     public required string Text { get; set; }
     [Parameter]
-    public decimal? Top { get; set; }
+    public int? Top { get; set; }
     [Parameter]
-    public decimal? Bottom { get; set; }
+    public int? Bottom { get; set; }
     [Parameter]
-    public decimal? Right { get; set; }
+    public int? Right { get; set; }
     [Parameter]
-    public decimal? Left { get; set; }
+    public int? Left { get; set; }
     [Parameter]
-    public decimal Scale { get; set; } = 1;
+    public decimal FontSize { get; set; } = 1;
     [Parameter]
-    public decimal Rotate { get; set; } = Random.Shared.Next(-400, 400) / 10m;
+    public double RotateX { get; set; } = Random.Shared.Next(-400, 400) / 10d;
 
-    private string _fontSize => $"font-size:{Scale}rem;";
-    private string _rotate => $"rotate:{Rotate}deg;";
-    private string _top => Top is null ? string.Empty : $"top:{Top}rem;";
-    private string _right => Right is null ? string.Empty : $"right:{Right}rem;";
-    private string _bottom => Bottom is null ? string.Empty : $"bottom:{Bottom}rem;";
-    private string _left => Left is null ? string.Empty : $"left:{Left}rem;";
+    private string _fontSize => $"font-size:{FontSize}rem;";
+    private string _rotate => $"rotate:{RotateX}deg;";
+    private string _top => Top is null ? string.Empty : $"top:{Top}px;";
+    private string _right => Right is null ? string.Empty : $"right:{Right}px;";
+    private string _bottom => Bottom is null ? string.Empty : $"bottom:{Bottom}px;";
+    private string _left => Left is null ? string.Empty : $"left:{Left}px;";
 }

@@ -10,16 +10,27 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: move; 
 }
+	.rotatable-display .grabbed {
+		cursor: grabbing;
+	}
 
 .rotatable-display-content {
 	user-select: none;
-	position: absolute;
-	height: var(--size);
-	width: var(--size);
 	transform-style: preserve-3d;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform-origin: 50% 50%;
 	transform: rotateX(var(--rotate-content-y)) rotateZ(var(--rotate-content-x));
 }
-.rotatable-display-content > ::deep * {
-	user-select: none;
-}
+	.rotatable-display-content > ::deep * {
+		transform-style: preserve-3d;
+		user-select: none;
+	}

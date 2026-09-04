@@ -1,5 +1,8 @@
 ﻿@namespace Codespirals.Blazor.Components
 
+@implements ISizable
+@implements IHasFontSize
+
 <div class="radial-text-container" style="@_radius">
     <div class="radial-text" style="@_fontSize @_angle @_rotatePerLetter">
         <div class="circle">
@@ -22,7 +25,7 @@
 @code {
     private double _clampedAngle => Math.Clamp(Angle, Text.Count(), 360);
 
-    private string _fontSize => $"--font-size:{FontSize}px;";
+    private string _fontSize => $"--font-size:{FontSize}rem;";
     private string _radius => $"--radius:{Size / 2}px;";
     private string _angle => $"--angle:{_clampedAngle}deg;";
     private string _rotatePerLetter => $"--rotate-per-letter:{_clampedAngle / Text.Length}deg;";
@@ -30,11 +33,11 @@
     [Parameter]
     public string Text { get; set; } = "";
     [Parameter]
-    public double Size { get; set; } = 200;
+    public int Size { get; set; } = 200;
     [Parameter]
     public double Angle { get; set; } = 180;
     [Parameter]
-    public int FontSize { get; set; } = 16;
+    public decimal FontSize { get; set; } = 1;
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 

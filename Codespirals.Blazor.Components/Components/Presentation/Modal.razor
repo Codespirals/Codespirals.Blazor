@@ -1,6 +1,8 @@
 ﻿@namespace Codespirals.Blazor.Components
 @using Microsoft.AspNetCore.Components.Web
 
+@implements IHidable
+
 @if (Visible)
 {
     <div class="modal-dialog" @onclick="ToggleHide">

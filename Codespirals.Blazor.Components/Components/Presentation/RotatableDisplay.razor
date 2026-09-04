@@ -1,7 +1,7 @@
 ﻿@namespace Codespirals.Blazor.Components
 @using Microsoft.AspNetCore.Components.Web
 
-<div class="rotatable-display" style="@_size @_rotate" 
+<div class="rotatable-display @_grabbed" style="@_rotate"
     @ontouchstart="SetCoordinates" @ontouchmove="Rotate" @ontouchmove:preventDefault="true"
     @onmousedown="SetCoordinates" @onmousemove="Rotate" @onmousemove:preventDefault="true">
     <div class="rotatable-display-content">
@@ -10,8 +10,8 @@
 </div>
 
 @code {
-    private string _size => $"--size:{ContentSize}px;";
     private string _rotate => $"--rotate-content-x:{_deltaX}deg;--rotate-content-y:{_deltaY}deg;";
+    private string _grabbed => Grabbed ? "grabbed" : "";
 
     private double _mouseX = 0;
     private double _mouseY = 0;
@@ -20,9 +20,8 @@
     private double _deltaX = 0;
 
     [Parameter]
-    public double ContentSize { get; set; } = 100;
-    [Parameter]
     public RenderFragment? ChildContent { get; set; }
+    public bool Grabbed { get; set; }
 
     private void SetCoordinates(MouseEventArgs e)
     {

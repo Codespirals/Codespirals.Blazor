@@ -1,6 +1,8 @@
 ﻿@namespace Codespirals.Blazor.Components
 
-<div class="horizontal-scroller">
+@implements IHasCssClass
+
+<div class="horizontal-scroller @CssClass">
     <div class="horizontal-scroller-content">
         @ChildContent
     </div>
@@ -23,4 +25,7 @@
 @code {
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string CssClass { get; set; } = "";
 }

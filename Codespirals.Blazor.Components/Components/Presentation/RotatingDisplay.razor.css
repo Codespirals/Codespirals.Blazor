@@ -23,6 +23,7 @@
 }
 
 .rotating-display {
+	transform-style: preserve-3d;
 	position: absolute;
 	top: 0;
 	right: 0;

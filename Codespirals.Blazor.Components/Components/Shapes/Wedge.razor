@@ -1,6 +1,13 @@
 ﻿@namespace Codespirals.Blazor.Components
 
-<div class="wedge @ExtraClasses" style="@_size @_position @_rotation @_sideLabel @_color">
+@implements IHasWidth
+@implements IHasHeight
+@implements I3DMovable
+@implements I3DRotatable
+@implements IHasCssClass
+@implements IHasColor
+
+<div class="wedge @CssClass" style="@_size @_position @_rotation @_sideLabel @_color">
     <div class="wedge-bottom">
         <div class="wedge-slope">
             <div class="wedge-label">
@@ -36,7 +43,7 @@
     [Parameter]
     public string Color { get; set; } = "#fff";
     [Parameter]
-    public string ExtraClasses { get; set; } = "";
+    public string CssClass { get; set; } = "";
     [Parameter]
     public string SideLabel { get; set; } = "";
     [Parameter]
