@@ -12,9 +12,6 @@
 	align-items: center;
 	cursor: move; 
 }
-	.rotatable-display .grabbed {
-		cursor: grabbing;
-	}
 
 .rotatable-display-content {
 	user-select: none;

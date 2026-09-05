@@ -1,7 +1,7 @@
 ﻿.radial-text-container {
 	height: calc(var(--radius) * 2);
 	width: calc(var(--radius) * 2);
-	background-color: black;
+	background-color: var(--color);
 	border-radius: 50%;
 	user-select: none;
 }
@@ -46,5 +46,6 @@
 	left: calc(var(--font-size) / -4);
 	transform-origin: bottom center;
 	height: var(--radius);
-	color: white;
+	color: var(--color);
+	filter: invert(1) grayscale(1);
 }
