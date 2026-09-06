@@ -5,8 +5,10 @@
 @implements I3DMovable
 @implements I3DRotatable
 @implements IHasColor
-@implements ICanHaveBackgroundImage
 @implements IHasCssClass
+@implements ICanHaveBackgroundImage
+
+@inherits ThreeDimensionalShape
 
 <div class="cuboid @CssClass" style="@_size @_position @_rotation @_sideLabel @_backgroundImage @_color">
     <div class="cuboid-bottom">
@@ -28,33 +30,11 @@
 
     private string _moveXPercentage => MoveXPercentage ? "%" : "px";
     private string _moveYPercentage => MoveYPercentage ? "%" : "px";
-     
-    [Parameter]
-    public double X { get; set; } = 100;
-    [Parameter]
-    public double Y { get; set; } = 100;
-    [Parameter]
-    public double Z { get; set; } = 100;
-    [Parameter]
-    public double MoveX { get; set; }
+
     [Parameter]
     public bool MoveXPercentage { get; set; }
     [Parameter]
-    public double MoveY { get; set; }
-    [Parameter]
     public bool MoveYPercentage { get; set; }
-    [Parameter]
-    public double MoveZ { get; set; }
-    [Parameter]
-    public double RotateX { get; set; }
-    [Parameter]
-    public double RotateY { get; set; }
-    [Parameter]
-    public double RotateZ { get; set; }
-    [Parameter]
-    public string Color { get; set; } = "#fff";
-    [Parameter]
-    public string CssClass { get; set; } = "";
     [Parameter]
     public string SideLabel { get; set; } = "";
     [Parameter]

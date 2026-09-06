@@ -1,0 +1,32 @@
+﻿@namespace Codespirals.Blazor.Components
+
+@implements IHasDimensions
+@implements I3DMovable
+@implements I3DRotatable
+@implements IHasColor
+@implements IHasCssClass
+
+@code {
+    [Parameter]
+    public double X { get; set; } = 100;
+    [Parameter]
+    public double Y { get; set; } = 100;
+    [Parameter]
+    public double Z { get; set; } = 100;
+    [Parameter]
+    public double MoveX { get; set; }
+    [Parameter]
+    public double MoveY { get; set; }
+    [Parameter]
+    public double MoveZ { get; set; }
+    [Parameter]
+    public double RotateX { get; set; }
+    [Parameter]
+    public double RotateY { get; set; }
+    [Parameter]
+    public double RotateZ { get; set; }
+    [Parameter]
+    public string Color { get; set; } = "#fff";
+    [Parameter]
+    public string CssClass { get; set; } = "";
+}
