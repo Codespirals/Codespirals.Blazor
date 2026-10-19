@@ -89,7 +89,7 @@
 /* side label */
 	.cuboid-bottom::before, .cuboid-bottom::after,
 	.cuboid-top::before, .cuboid-top::after {
-		font-size: calc(var(--z) * 0.4);
+		font-size: calc(min(var(--x), var(--y)) * 0.05);
 		text-align: center;
 		align-content: center;
 		content: var(--label);

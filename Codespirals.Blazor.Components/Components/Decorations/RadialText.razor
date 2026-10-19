@@ -26,7 +26,7 @@
 @code {
     private double _clampedAngle => Math.Clamp(Angle, Text.Count(), 360);
 
-    private string _fontSize => $"--font-size:{FontSize}rem;";
+    private string _fontSize => $"--font-size:{FontSize}px;";
     private string _radius => $"--radius:{Size / 2}px;";
     private string _angle => $"--angle:{_clampedAngle}deg;";
     private string _rotatePerLetter => $"--rotate-per-letter:{_clampedAngle / Text.Length}deg;"; 

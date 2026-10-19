@@ -24,7 +24,7 @@
     [Parameter]
     public double RotateX { get; set; } = Random.Shared.Next(-400, 400) / 10d;
 
-    private string _fontSize => $"font-size:{FontSize}rem;";
+    private string _fontSize => $"font-size:{FontSize}px;";
     private string _rotate => $"rotate:{RotateX}deg;";
     private string _top => Top is null ? string.Empty : $"top:{Top}px;";
     private string _right => Right is null ? string.Empty : $"right:{Right}px;";
