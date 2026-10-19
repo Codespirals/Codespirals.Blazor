@@ -31,7 +31,8 @@ public class UpCountingTimer : Interfaces.ITimer
     /// <inheritdoc />
     public UpCountingTimer(TimerCallback? callback)
     {
-        _timer = new Timer(Tick, null, _timeBetweenTicksInMilliseconds, _timeBetweenTicksInMilliseconds);
+        _timeBetweenTicksInMilliseconds = ShowMilliseconds ? 1 : 1000;
+        _timer = new Timer(Tick, null, 1000, _timeBetweenTicksInMilliseconds);
         _callback = callback;
     }
 

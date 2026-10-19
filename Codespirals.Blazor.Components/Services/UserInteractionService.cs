@@ -52,8 +52,9 @@ public class UserInteractionService(IJSRuntime js) : IUserInteractionService
             using var streamRef = new DotNetStreamReference(stream: fileStream);
             await _js.InvokeVoidAsync("downloadFileFromStream", fileName, streamRef);
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            Console.Write(e.Message);
             await MakeAlert($"Failed to download {name}.json");
         }
     }
@@ -73,8 +74,9 @@ public class UserInteractionService(IJSRuntime js) : IUserInteractionService
                 return default;
             return data;
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            Console.Write(e.Message);
             await MakeAlert($"Failed to upload {file.Name}");
             return default;
         }
