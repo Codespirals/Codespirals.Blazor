@@ -6,7 +6,7 @@
 public class UpCountingTimer : Interfaces.ITimer
 {
     private readonly System.Threading.Timer _timer;
-    private TimeSpan _runTime;
+    private TimeSpan _runTime = TimeSpan.Zero;
     private readonly long _timeBetweenTicksInMilliseconds = 1000;
     private readonly TimerCallback? _callback;
 
@@ -15,7 +15,7 @@ public class UpCountingTimer : Interfaces.ITimer
     /// <inheritdoc />
     public bool Paused { get; set; }
     /// <inheritdoc />
-    public string TimeString => _runTime.ToString(GetTimeFormat());
+    public string TimeString => GetTimeString();
     /// <inheritdoc />
     public TimeSpan Time => _runTime;
 
@@ -65,7 +65,7 @@ public class UpCountingTimer : Interfaces.ITimer
         _runTime = _runTime.Add(TimeSpan.FromMilliseconds(_timeBetweenTicksInMilliseconds));
         _callback?.Invoke(null);
     }
-    private string GetTimeFormat()
+    private string GetTimeString()
     {
         var parts = new List<string>();
         if (ShowHours)
@@ -74,8 +74,9 @@ public class UpCountingTimer : Interfaces.ITimer
             parts.Add("mm");
         if (ShowSeconds)
             parts.Add("ss");
+        var timeFormat = string.Join("\\:", parts);
         if (ShowMilliseconds)
-            parts.Add("fff");
-        return string.Join(':', parts);
+            timeFormat = $"{timeFormat}{(string.IsNullOrWhiteSpace(timeFormat) ? "" : ".")}fff";
+        return Time.ToString(timeFormat);
     }
 }
