@@ -75,7 +75,7 @@ public class UpCountingTimer : Interfaces.ITimer
         if (ShowSeconds)
             parts.Add("ss");
         if (ShowMilliseconds)
-            parts.Add("tttt");
+            parts.Add("fff");
         return string.Join(':', parts);
     }
 }
