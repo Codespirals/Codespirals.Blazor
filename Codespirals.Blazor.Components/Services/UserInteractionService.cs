@@ -4,6 +4,9 @@ using System.Text.Json;
 
 namespace Codespirals.Blazor.Services;
 
+/// <summary>
+/// A service to facilitate browser-user interactions
+/// </summary>
 public interface IUserInteractionService
 {
     /// <summary>
@@ -28,9 +31,10 @@ public interface IUserInteractionService
     /// <param name="file"></param>
     /// <param name="maxFileSize"></param>
     /// <returns></returns>
-    public Task<T> UploadJsonFile<T>(IBrowserFile file, int maxFileSize = 512000);
+    public Task<T?> ExtractDataFromJsonFile<T>(IBrowserFile file, int maxFileSize = 512000);
 }
 
+/// <inheritdoc/>
 public class UserInteractionService(IJSRuntime js) : IUserInteractionService
 {
     private IJSRuntime _js = js;
@@ -60,23 +64,39 @@ public class UserInteractionService(IJSRuntime js) : IUserInteractionService
     }
 
     /// <inheritdoc/>
-    public async Task<T?> UploadJsonFile<T>(IBrowserFile file, int maxFileSize = 512000)
+    public async Task<T?> ExtractDataFromJsonFile<T>(IBrowserFile file, int maxFileSize = 512000)
     {
         try
         {
-            if (!file.ContentType.Contains("json"))
+            if (!file.ContentType.Contains("json") || !file.Name.EndsWith(".json"))
+            {
+                await MakeAlert($"File is of the wrong format.");
                 return default;
-            using var stream = file.OpenReadStream(maxFileSize);
-            if (stream is null)
+            }
+            if (file.Size > maxFileSize)
+            {
+                await MakeAlert($"File is too big.");
                 return default;
-            var data = JsonSerializer.Deserialize<T>(stream);
+            }
+            using var memoryStream = new MemoryStream();
+            await file.OpenReadStream(maxFileSize).CopyToAsync(memoryStream);
+            if (memoryStream is null || !memoryStream.CanRead)
+            {
+                await MakeAlert($"Failed to read file.");
+                return default;
+            }
+            var bytes = memoryStream.ToArray();
+            var data = JsonSerializer.Deserialize<T>(bytes);
             if (data is null)
+            {
+                await MakeAlert($"File had no data.");
                 return default;
+            }
             return data;
         }
         catch (Exception e)
         {
-            Console.Write(e.Message);
+            Console.Write(e.Message); 
             await MakeAlert($"Failed to upload {file.Name}");
             return default;
         }
