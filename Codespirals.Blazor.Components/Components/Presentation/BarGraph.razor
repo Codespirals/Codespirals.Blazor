@@ -9,11 +9,11 @@
     }
     <thead>
         <tr>
-            @if (Marked is null || Marked != Max)
+            @if (Marked is null || Marked == Max)
             {
                 <th class="max" style="@($"--value:{Max};")">@Max.ToString("0.00", null)</th>
             }
-            @if (Marked is not null)
+            else if (Marked is not null)
             {
                 <th class="marked" style="@($"--value:{Marked};")">@Marked.ToString("0.00", null)</th>
             }

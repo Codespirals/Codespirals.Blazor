@@ -21,7 +21,7 @@ button {
 	grid-column: span 2;
 	display: block;
 	background-color: var(--color-background);
-	padding: 0 0.5rem 0.5rem 0.5rem;
+	padding: 0.25rem 0.5rem;
 }
 
 	.collapsible-section-content.collapsed {
